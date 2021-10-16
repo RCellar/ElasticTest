@@ -24,3 +24,8 @@ instances:
     dns:
       - kib01
       - localhost
+
+  - name: 'fleet-server'
+    dns:
+      - fleet-server
+      - localhost
