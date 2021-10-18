@@ -1,3 +1,4 @@
+#          bin/elasticsearch-certutil ca --pem --out /certs/ca/ca.pem --pass changeme;
 version: '2.2'
 
 services:
@@ -7,9 +8,14 @@ services:
     command: >
       bash -c '
         yum install -y -q -e 0 unzip;
+        yum install -y -q -e 0 java-11-openjdk-devel;
         if [[ ! -f /certs/bundle.zip ]]; then
+          mkdir /certs/ca;
           bin/elasticsearch-certutil cert --silent --pem --in config/certificates/instances.yml -out /certs/bundle.zip;
           unzip /certs/bundle.zip -d /certs;
+          openssl pkcs12 -export -in /certs/enterprise-search/enterprise-search.crt -inkey /certs/enterprise-search/enterprise-search.key -out /certs/enterprise-search/enterprise-search.p12 -name enterprise-search -password pass:changeme;
+          keytool -importkeystore -destkeystore /certs/enterprise-search/enterprise-search.jks -srckeystore /certs/enterprise-search/enterprise-search.p12 -srcstoretype PKCS12 -storepass changeme -alias enterprise-search -srcstorepass changeme;
+          openssl pkcs12 -in /certs/enterprise-search/enterprise-search.p12 -nodes -nocerts -passin pass:changeme | openssl rsa -out /certs/enterprise-search/enterprise-search_stripped.key;
         fi;
         chown -R 1000:0 /certs
       '
@@ -19,7 +25,7 @@ services:
       - .:/usr/share/elasticsearch/config/certificates
     networks:
       - elastic
-
+  
 volumes:
   certs:
     driver: local

@@ -125,11 +125,22 @@ services:
       - "JAVA_OPTS=-Xms512m -Xmx512m"
       - "ENT_SEARCH_DEFAULT_PASSWORD=changeme"
       - "elasticsearch.username=elastic"
-      - "elasticsearch.password=qjwNi5tf2hQQtKEGPj5r"
+      - elasticsearch.password=$ELASTIC_PASS
       - "elasticsearch.host=https://es01:9200"
+      - "elasticsearch.ssl.enabled=true"
+      - "elasticsearch.ssl.certificate=/usr/share/elasticsearch/config/certificates/enterprise-search/enterprise-search.crt"
+      - "elasticsearch.ssl.key=/usr/share/elasticsearch/config/certificates/enterprise-search/enterprise-search_stripped.key"
+      - "elasticsearch.ssl.certificate_authority=/usr/share/elasticsearch/config/certificates/ca/ca.crt"
+      - "elasticsearch.ssl.key_passphrase=changeme"
       - "allow_es_settings_modification=true"
+      - "elasticsearch.ssl.verify=false"
       - "secret_management.encryption_keys=[4a2cd3f81d39bf28738c10db0ca782095ffac07279561809eecc722e0c20eb09]"
       - "elasticsearch.startup_retry.interval=15"
+      - "ent_search.ssl.enabled=true"
+      - "ent_search.ssl.keystore.path=/usr/share/elasticsearch/config/certificates/enterprise-search/enterprise-search.p12"
+      - "ent_search.ssl.keystore.password=changeme"
+      - "ent_search.ssl.keystore.key_password=changeme"
+      - "ent_search.external_url=https://localhost:3002"
     ports:
       - 3002:3002
     networks:
@@ -148,14 +159,16 @@ services:
     environment:
       SERVERNAME: localhost
       ELASTICSEARCH_URL: https://es01:9200
-      ELASTICSEARCH_HOSTS: https://es01:9200
+      ELASTICSEARCH_HOSTS: '["https://es01:9200","https://es02:9200","https://es03:9200"]'
       ELASTICSEARCH_USERNAME: kibana_system
-      ELASTICSEARCH_PASSWORD: DsZLy8yttsrmlKOOotkl
-      ENTERPRISESEARCH_HOST: http://enterprise-search:3002
+      ELASTICSEARCH_PASSWORD: $KIBANA_SYSTEM_PASS
+      ENTERPRISESEARCH_HOST: https://localhost:3002
       ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES: $CERTS_DIR/ca/ca.crt
       SERVER_SSL_ENABLED: "true"
       SERVER_SSL_KEY: $CERTS_DIR/kib01/kib01.key
       SERVER_SSL_CERTIFICATE: $CERTS_DIR/kib01/kib01.crt
+      ENTERPRISESEARCH_SSL_VERIFICATIONMODE: none
+      ENTERPRISESEARCH_SSL_CERTIFICATEAUTHORITIES: $CERTS_DIR/ca/ca.crt
     volumes:
       - ./config/kibana/:/usr/share/kibana/config
       - certs:$CERTS_DIR
