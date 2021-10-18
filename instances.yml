@@ -24,8 +24,22 @@ instances:
     dns:
       - kib01
       - localhost
+    ip:
+      - 127.0.0.1
+
+  - name: 'enterprise-search'
+    dns:
+      - enterprise-search
+      - localhost
+    ip:
+      - 127.0.0.1
 
   - name: 'fleet-server'
     dns:
       - fleet-server
+      - localhost
+
+  - name: 'vault'
+    dns:
+      - vault
       - localhost
