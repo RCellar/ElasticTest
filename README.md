@@ -7,6 +7,7 @@ Prerequisities:
 * Visual Studio Code (https://code.visualstudio.com/):
     
     Extensions:
+    
     ![image](https://user-images.githubusercontent.com/30252277/137925301-d2d00cb7-384a-4eb9-91bd-a0f597449738.png)
 * Git (https://git-scm.com/download/win)
 * Docker Desktop (https://www.docker.com/products/docker-desktop)
