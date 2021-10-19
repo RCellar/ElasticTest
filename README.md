@@ -4,7 +4,7 @@ The intent is to be a soup to nuts full instance of ElasticStack that is fully c
 
 Prerequisities:
 * 8 GB of System RAM, but 16+ GB is recommended, particularly if you plan to simulate load or development.
-* Visual Studio Code (https://code.visualstudio.com/)
+* Visual Studio Code (https://code.visualstudio.com/):
     Extensions:
     ![image](https://user-images.githubusercontent.com/30252277/137925301-d2d00cb7-384a-4eb9-91bd-a0f597449738.png)
 * Git (https://git-scm.com/download/win)
