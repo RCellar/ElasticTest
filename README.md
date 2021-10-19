@@ -15,7 +15,8 @@ Installation:
 
 I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my local install needs, but I'll explain manual methodologies below.
 
-1) Configure and Install Windows Subsystem for Linux / WSL 2
+1) Configure and Install Windows Subsystem for Linux / WSL 2:
+
     From an elevated Powershell prompt:
     
     `notepad "$env:USERPROFILE/.wslconfig"`
@@ -28,7 +29,8 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     
     This will run through the install process, potentially requiring a subsequent reboot.  Do so if required.
     
-2) Install Git
+2) Install Git:
+
     Run the installer.  Select the following options, taking note of any warnings or notifications that are presented:  
     
     ![image](https://user-images.githubusercontent.com/30252277/137911487-313352dc-968e-475a-bf90-c31f4db6ad8e.png)
@@ -37,7 +39,8 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
 
     Other options can be chosen at your preference/discretion.  I would advise using the Git Credential Manager.
 
-3) Install Docker Desktop
+3) Install Docker Desktop:
+
      Run the installer and proceed through installation.  Once installation is completed, validate that Docker has both Docker Compose and WSL2 backend enabled:
      
      ![image](https://user-images.githubusercontent.com/30252277/137914822-143899ad-0d8c-4c05-95a7-f21c5efe7e5d.png)
