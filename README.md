@@ -43,8 +43,38 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
 
 3) Install Docker Desktop:
 
-     Run the installer and proceed through installation.  Once installation is completed, validate that Docker has both Docker Compose and WSL2 backend enabled:
-     
-     ![image](https://user-images.githubusercontent.com/30252277/137914822-143899ad-0d8c-4c05-95a7-f21c5efe7e5d.png)
+    Run the installer and proceed through installation.  Once installation is completed, validate that Docker has both Docker Compose and WSL2 backend enabled:
+    
+    ![image](https://user-images.githubusercontent.com/30252277/137914822-143899ad-0d8c-4c05-95a7-f21c5efe7e5d.png)
 
+    Pull down the Docker images:
+    
+    `docker pull docker.elastic.co/elasticsearch/elasticsearch:7.15.1`
+    `docker pull docker.elastic.co/enterprise-search/enterprise-search:7.15.0`
+    `docker pull docker.elastic.co/kibana/kibana:7.15.1`
+    `docker pull vault:latest`
      
+4) Clone down the Git repo:
+     
+    Navigate to a directory of your choosing and clone a copy down:
+    `git clone https://github.com/RCellar/ElasticTest.git`
+     
+5) Build the Certificate Volume and create certificates:
+
+    With "ElasticTest" as your working directory:
+     
+    `docker compose -f create-certs.yml up`
+     
+    This creates all the certificates that will be used by the container environment we're about to bring online.  A single instance of ElasticSearch will come        online, create and populate the volume, then turn off.  You should see results in Docker Desktop like the following:
+     
+    ![image](https://user-images.githubusercontent.com/30252277/137956971-462d15b5-3ee9-4c2b-a243-91fee12c8f54.png)
+
+    Once validated, we can remove the container as it will no longer be in use.  
+    
+    `docker compose -f create-certs.yml down`
+        
+    This will remove the containers associated with the runbook, but leave the Volumes behind.  (Note: to also bring down volumes, add `-v` to the previous command)
+    
+6) Build the Elastic Environment:
+
+    `docker compose -f enchilada.yml up`
