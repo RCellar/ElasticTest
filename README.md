@@ -105,4 +105,4 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     
     You'll see the container nodes will recreate where relevant.  At this point you should be able to launch Kibana via https://localhost:5601 and login using the `elastic` credential, using the same credential you should've stored from earlier.
     
-    
+Notes and Current Defects: Enterprise Search integration with Kibana does not currently work due to an issue with the CA cert format, but works as standalone.  It can be accessed via https://localhost:3002 .
