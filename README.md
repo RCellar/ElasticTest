@@ -23,7 +23,7 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     
     `notepad "$env:USERPROFILE/.wslconfig"`
 
-    This will create a blank configuration for WSL to use, tied to your user profile.  I personally set mine to 6GB, as below, but the requirement is for 4GB:
+    This will create a blank configuration for WSL to use, tied to your user profile.  Please note: this is a very general configuration that affects all WSL distributions, and there are more specific configurations you can potentially explore.  I personally set mine to 6GB, as below, but the requirement is for 4GB:
     
     ![image](https://user-images.githubusercontent.com/30252277/137913348-39143db3-14ba-47d0-b11c-4189b39174b3.png)
     
@@ -50,8 +50,11 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     Pull down the Docker images:
     
     `docker pull docker.elastic.co/elasticsearch/elasticsearch:7.15.1`
+    
     `docker pull docker.elastic.co/enterprise-search/enterprise-search:7.15.0`
+    
     `docker pull docker.elastic.co/kibana/kibana:7.15.1`
+    
     `docker pull vault:latest`
      
 4) Clone down the Git repo:
