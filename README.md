@@ -1,6 +1,6 @@
 # ElasticTest
 
-The intent is to be a soup to nuts full instance of ElasticStack that is fully collapsible.
+The intent is to be a soup to nuts full instance of ElasticStack that is fully collapsible.  This guide presumes the usage of a Windows workstation, but can be easily modified to accomodate Mac/Linux contexts.
 
 Prerequisities:
 
