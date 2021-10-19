@@ -25,7 +25,7 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
 
     This will create a blank configuration for WSL to use, tied to your user profile.  Please note: this is a very general configuration that affects all WSL distributions, and there are more specific configurations you can potentially explore.
     
-    https://docs.microsoft.com/en-us/windows/wsl/wsl-config#wsl-2-settings
+    Further documentation: https://docs.microsoft.com/en-us/windows/wsl/wsl-config#wsl-2-settings
     
     I personally set mine to 6GB, as below, but the requirement is for 4GB:
     
