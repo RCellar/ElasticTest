@@ -3,7 +3,7 @@
 The intent is to be a soup to nuts full instance of ElasticStack that is fully collapsible.  This guide presumes the usage of a Windows workstation, but can be easily modified to accomodate Mac/Linux contexts.
 
 Prerequisities:
-
+* 8 GB of System RAM, but 16+ GB is recommended, particularly if you plan to simulate load or development.
 * Visual Studio Code (https://code.visualstudio.com/)
     Extensions:
     ![image](https://user-images.githubusercontent.com/30252277/137925301-d2d00cb7-384a-4eb9-91bd-a0f597449738.png)
@@ -15,7 +15,7 @@ Installation:
 
 I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my local install needs, but I'll explain manual methodologies below.
 
-1) Install Windows Subsystem for Linux / WSL 2
+1) Configure and Install Windows Subsystem for Linux / WSL 2
     From an elevated Powershell prompt:
     
     `notepad "$env:USERPROFILE/.wslconfig"`
