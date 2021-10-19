@@ -30,9 +30,14 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     Run the installer.  Select the following options, taking note of any warnings or notifications that are presented:  
     
     ![image](https://user-images.githubusercontent.com/30252277/137911487-313352dc-968e-475a-bf90-c31f4db6ad8e.png)
-    
-    
+    ![image](https://user-images.githubusercontent.com/30252277/137913857-b74e80ff-0e9d-415c-8a85-01f3cbc238a5.png)
+    ![image](https://user-images.githubusercontent.com/30252277/137913888-fc45a990-390e-492a-a398-25b1b0388c78.png)
 
+    Other options can be chosen at your preference/discretion.  I would advise using the Git Credential Manager.
 
 3) Install Docker Desktop
-4) 
+     Run the installer and proceed through installation.  Once installation is completed, validate that Docker has both Docker Compose and WSL2 backend enabled:
+     
+     ![image](https://user-images.githubusercontent.com/30252277/137914822-143899ad-0d8c-4c05-95a7-f21c5efe7e5d.png)
+
+     
