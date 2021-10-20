@@ -71,6 +71,7 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     ```
     wsl -d docker-desktop
     ```
+    This will initate a shell session connected to the Docker Engine running on WSL2.  Enter the following command to configure Docker Engine's VM container memory       maximum:
     ```
     sysctl -w vm.max_map_count=262144
     ```
