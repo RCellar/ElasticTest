@@ -32,9 +32,9 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     I personally set mine to 6GB, as below, but the requirement is for 4GB:
     
     ![image](https://user-images.githubusercontent.com/30252277/137913348-39143db3-14ba-47d0-b11c-4189b39174b3.png)
-    
-    `wsl --install`
-    
+    ```
+    wsl --install
+    ```
     This will run through the install process, potentially requiring a subsequent reboot.  Do so if required.
     
 2) Install Git:
@@ -54,14 +54,18 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     ![image](https://user-images.githubusercontent.com/30252277/137914822-143899ad-0d8c-4c05-95a7-f21c5efe7e5d.png)
 
     Pull down the Docker images:
-    
-    `docker pull docker.elastic.co/elasticsearch/elasticsearch:7.15.1`
-    
-    `docker pull docker.elastic.co/enterprise-search/enterprise-search:7.15.0`
-    
-    `docker pull docker.elastic.co/kibana/kibana:7.15.1`
-    
-    `docker pull vault:latest`
+    ```
+    docker pull docker.elastic.co/elasticsearch/elasticsearch:7.15.1
+    ```
+    ```
+    docker pull docker.elastic.co/enterprise-search/enterprise-search:7.15.0
+    ```
+    ```
+    docker pull docker.elastic.co/kibana/kibana:7.15.1
+    ```
+    ```
+    docker pull vault:latest
+    ```
     
 4) Configure Docker Engine on WSL2 to accomodate minimum memory for VM containers:
     
