@@ -60,13 +60,19 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     `docker pull docker.elastic.co/kibana/kibana:7.15.1`
     
     `docker pull vault:latest`
+    
+4) Configure Docker Engine on WSL2 to accomodate minimum memory for VM containers:
+    
+    `wsl -d docker-desktop`
+    
+    `sysctl -w vm.max_map_count=262144`
      
-4) Clone down the Git repo:
+5) Clone down the Git repo:
      
     Navigate to a directory of your choosing and clone a copy down:
     `git clone https://github.com/RCellar/ElasticTest.git`
      
-5) Build the Certificate Volume and create certificates:
+6) Build the Certificate Volume and create certificates:
 
     With "ElasticTest" as your working directory:
      
@@ -82,7 +88,7 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
         
     This will remove the containers associated with the runbook, but leave the Volumes behind.  (Note: to also bring down volumes, add `-v` to the previous command)
     
-6) Build the Elastic Environment:
+7) Build the Elastic Environment:
 
     `docker compose -f enchilada.yml up`
     
