@@ -68,40 +68,47 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     ```
     
 4) Configure Docker Engine on WSL2 to accomodate minimum memory for VM containers:
-    
-    `wsl -d docker-desktop`
-    
-    `sysctl -w vm.max_map_count=262144`
+    ```
+    wsl -d docker-desktop
+    ```
+    ```
+    sysctl -w vm.max_map_count=262144
+    ```
      
 5) Clone down the Git repo:
      
     Navigate to a directory of your choosing and clone a copy down:
-    `git clone https://github.com/RCellar/ElasticTest.git`
+    ```
+    git clone https://github.com/RCellar/ElasticTest.git
+    ```
      
 6) Build the Certificate Volume and create certificates:
 
     With "ElasticTest" as your working directory:
-     
-    `docker compose -f create-certs.yml up`
-     
+    ``` 
+    docker compose -f create-certs.yml up
+    ```
     This creates all the certificates that will be used by the container environment we're about to bring online.  A single instance of ElasticSearch will come        online, create and populate the volume, then turn off.  You should see results in Docker Desktop like the following:
      
     ![image](https://user-images.githubusercontent.com/30252277/137956971-462d15b5-3ee9-4c2b-a243-91fee12c8f54.png)
 
     Once validated, we can remove the container as it will no longer be in use.  
-    
-    `docker compose -f create-certs.yml down`
+    ```
+    docker compose -f create-certs.yml down
+    ```
         
     This will remove the containers associated with the runbook, but leave the Volumes behind.  (Note: to also bring down volumes, add `-v` to the previous command)
     
 7) Build the Elastic Environment:
-
-    `docker compose -f enchilada.yml up`
+    ```
+    docker compose -f enchilada.yml up
+    ```
     
     This will create the volumes, network, and containers for use with the deployment.  However, you'll note that Kibana will not be able to connect to the ElasticSearch backend.  This is because the passwords need to be generated and synced.  To do so, execute the following command:
-    
-    `docker exec es01 /bin/bash -c "bin/elasticsearch-setup-passwords \
-    auto --batch --url https://es01:9200"`
+    ```
+    docker exec es01 /bin/bash -c "bin/elasticsearch-setup-passwords \
+    auto --batch --url https://es01:9200"
+    ```
     
     It will generate output that looks like the following.  Be sure to copy them down (Note: these are randomly generated):
     
@@ -112,8 +119,9 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
     ![image](https://user-images.githubusercontent.com/30252277/137962077-b847d335-a440-42c8-a12f-11804a05fb61.png)
 
     Save your changes, then assert those changes:
-    
-    `docker compose -f enchilada.yml up`
+    ```
+    docker compose -f enchilada.yml up
+    ```
     
     You'll see the container nodes will recreate where relevant.  At this point you should be able to launch Kibana via https://localhost:5601 and login using the `elastic` credential, using the same credential you should've stored from earlier.
     
