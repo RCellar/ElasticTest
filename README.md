@@ -20,8 +20,9 @@ I personally prefer to use Chocolatey (https://chocolatey.org/) for most of my l
 1) Configure and Install Windows Subsystem for Linux / WSL 2:
 
     From an elevated Powershell prompt:
-    
-    ```notepad "$env:USERPROFILE/.wslconfig" ```
+    ```
+    notepad "$env:USERPROFILE/.wslconfig" 
+    ```
     
 
     This will create a blank configuration for WSL to use, tied to your user profile.  Please note: this is a very general configuration that affects all WSL distributions, and there are more specific configurations you can potentially explore.
