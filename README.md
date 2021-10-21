@@ -1,6 +1,6 @@
 # ElasticTest
 
-The intent is to be a soup to nuts full instance of ElasticStack that is fully collapsible.  This guide presumes the usage of a Windows workstation, but can be easily modified to accomodate Mac/Linux contexts.
+The intent is to be a functional ElasticStack that is fully collapsible, primarily for Lab or Development usage.  This guide presumes the usage of a Windows workstation, but can be easily modified to accomodate Mac/Linux contexts.
 
 Prerequisities (installation steps below):
 * 8 GB of System RAM, but 16+ GB is recommended, particularly if you plan to simulate load or development.
