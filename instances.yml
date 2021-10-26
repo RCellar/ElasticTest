@@ -10,29 +10,21 @@ instances:
     dns:
       - es02
       - localhost
-    ip:
-      - 127.0.0.1
 
   - name: es03
     dns:
       - es03
       - localhost
-    ip:
-      - 127.0.0.1
 
   - name: 'kib01'
     dns:
       - kib01
       - localhost
-    ip:
-      - 127.0.0.1
 
   - name: 'enterprise-search'
     dns:
       - enterprise-search
       - localhost
-    ip:
-      - 127.0.0.1
 
   - name: 'fleet-server'
     dns:
@@ -43,3 +35,5 @@ instances:
     dns:
       - vault
       - localhost
+    ip:
+      - 127.0.0.1
